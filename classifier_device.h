@@ -2,12 +2,13 @@
 #ifndef CLASSIFIER_DEVICE_H
 #define CLASSIFIER_DEVICE_H
 
+#include <string.h>
+#include <fstream>
 #include <iostream>
 using std::cout;
 using std::cerr;
 
-#include <string.h>
-#include <fstream>
+
 
 #include "classification.h"
 
