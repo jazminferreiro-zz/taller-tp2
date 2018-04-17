@@ -1,3 +1,4 @@
+#include <string.h>
 #include <string>
 #include "package.h"
 bool Package::is_par(unsigned int n ){
