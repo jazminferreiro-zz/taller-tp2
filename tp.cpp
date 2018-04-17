@@ -18,7 +18,7 @@ using std::ifstream;
 #include <list>
 #include <vector>
 #include <string.h>
-#include <thread>
+
 #include <mutex>
 
 
@@ -31,16 +31,18 @@ using std::ifstream;
 #define EXPECTED_OPERANDS_NUM 3
 
 
+
 #include "classification.h"
 #include "classifier_device.h"
 #include "package_protector.h"
+#include "screw_packager.h"
 
 
 
 
 
 //////////////////////////////////////////////////////////////////////
-class Thread {
+/*class Thread {
     private:
         std::thread thread;
  
@@ -69,9 +71,9 @@ class Thread {
             this->thread = std::move(other.thread);
             return *this;
         }
-};
+};*/
 
-
+/*
 
 
 class Screw_packager : public Thread {
@@ -97,7 +99,7 @@ class Screw_packager : public Thread {
             }
         }
 };
-
+*/
 
 int main(int argc, char * argv[] ){
     if (argc < EXPECTED_OPERANDS_NUM){
