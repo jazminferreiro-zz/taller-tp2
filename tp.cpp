@@ -33,7 +33,7 @@ using std::streampos;
 
 
 #include "classification.h"
-
+#include "classifier_device.h"
 
 
 
@@ -246,7 +246,7 @@ std::ostream& operator<< (std::ostream &out, const Package &pac)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-
+/*
 class Lock {
 private:
     std::mutex &m;
@@ -265,7 +265,7 @@ private:
     Lock& operator=(const Lock&) = delete;
     Lock(Lock&&) = delete;
     Lock& operator=(Lock&&) = delete;
-};
+};*/
 ////////////////////////////////////////////////////////////////////////////////
 
 class Package_protector { // aka monitor
@@ -335,7 +335,7 @@ class Package_protector { // aka monitor
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-
+/*
 
 class Classifier_device{
     char * classifier_file_name;
@@ -352,14 +352,11 @@ class Classifier_device{
             char c = buffer[byte];
 
             for (int i = 7; i >= 0; i--){
-                //cout <<((c >> i) & 1);
                 if ( ((c >> i) & 1) != 1 ){
                     return false;
                 }
             }
-            //cout << " ";
         }
-        //cout << endl;
         return true; 
     }
 
@@ -421,7 +418,6 @@ class Classifier_device{
         
         classifier_ifstream.read(buffer, 4);
 
-        //cout << "   bytes= ";
 
         if (are_all_bits_one(buffer)){
             cerr << this->classifier_device << " atascado" << endl;
@@ -429,16 +425,15 @@ class Classifier_device{
         }
 
         unsigned int type =  (unsigned char)(buffer[0]) >> 3;
-        //cout <<"type: " << type << "\n";
+
         unsigned int amount =  int(((unsigned char)(buffer[0]) << 29) >> 5|
         (unsigned char)(buffer[1]) << 11 |
         (unsigned char)(buffer[2]) << 3 |
         (unsigned char)(buffer[3]) >> 5);
-        //cout <<"amount: "<< amount << "\n";
+    
 
         unsigned int width =  (unsigned char)(buffer[3]) << 27;
         width = (width >> 27);
-        //cout <<"width: " << width << "\n";
             
         if (classifier_ifstream.tellg() >= this->size){
             this->has_finished = true;
@@ -450,8 +445,9 @@ class Classifier_device{
 
         return std::move(cl);
     }
-};
+};*/
 
+////////////////////////////////////////////////////////////////////////
 class Configuration{
     char * config_file_name;
     ifstream config_file;
@@ -482,9 +478,6 @@ public:
 
             linereader >> limit;
 
-            //cout << "id: " <<id << "\n"<< "name: " << name
-            //<< "\n" << "limit: " <<limit << "\n";
-
             Package pac(id,name,limit);
 
             packages.push_back(pac);
@@ -493,7 +486,6 @@ public:
         return std::move(packages);
     }
 };
-
 
 
 

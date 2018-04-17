@@ -1,0 +1,18 @@
+
+#include <mutex>
+
+class Lock {
+private:
+    std::mutex &m;
+
+public:
+    explicit Lock(std::mutex &m);
+
+    ~Lock();
+
+private:
+    Lock(const Lock&);
+    Lock& operator=(const Lock&);
+    Lock(Lock&&);
+    Lock& operator=(Lock&&);
+};

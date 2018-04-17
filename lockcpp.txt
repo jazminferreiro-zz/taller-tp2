@@ -1,0 +1,16 @@
+
+#include "lock.h"
+
+
+Lock::Lock(std::mutex &m) : m(m) {
+    m.lock();
+}
+
+Lock::~Lock() {
+    m.unlock();    
+}
+
+Lock::Lock(const Lock&) = delete;
+Lock::Lock& operator=(const Lock&) = delete;
+Lock:: Lock(Lock&&) = delete;
+Lock:: Lock& operator=(Lock&&) = delete;
