@@ -1,4 +1,4 @@
-
+#include <string>
 #include "classifier_device.h"
 
 bool Classifier_device:: are_all_bits_one(char * buffer){

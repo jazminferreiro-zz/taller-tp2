@@ -2,25 +2,18 @@
 #ifndef CLASSIFIER_DEVICE_H
 #define CLASSIFIER_DEVICE_H
 
-#include <string.h>
+#include "classification.h"
+#include <string>
 #include <fstream>
 #include <iostream>
 using std::cout;
 using std::cerr;
-
-
-
-#include "classification.h"
-
-
-
 using std::streampos;
 
 
 #define ERROR 1
 #define SUCCESS 0
 class Classifier_device{
-
 private:
     char * classifier_file_name;
     std::ifstream classifier_ifstream;
@@ -46,3 +39,4 @@ public:
 };
 
 #endif
+

@@ -1,7 +1,10 @@
 
 #include "classification.h"
 
-Classification::Classification(unsigned int type, unsigned int amount, unsigned int width){
+
+Classification::Classification(unsigned int type,//
+                                unsigned int amount,//
+                                unsigned int width){ //
     this-> type = type;
     this-> amount = amount;
     this-> width = width;

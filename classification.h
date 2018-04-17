@@ -1,6 +1,7 @@
 #ifndef CLASSIFICATION_H
 #define CLASSIFICATION_H
 
+#include <string>
 #include <iostream>
 using std::ios;
 using std::endl;
@@ -27,5 +28,4 @@ class Classification{
 };
 
 std::ostream& operator<< (std::ostream &out, const Classification &cl);
-
 #endif

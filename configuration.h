@@ -2,6 +2,7 @@
 #ifndef CONFIGURATION_H_
 #define CONFIGURATION_H
 
+#include "package.h"
 #include <list>
 #include <sstream>
 #include <fstream>
@@ -10,7 +11,7 @@ using std::ios;
 using std::ifstream;
 using std::streampos;
 
-#include "package.h"
+
 
 class Configuration{
     char * config_file_name;

@@ -1,3 +1,5 @@
+#include <string>
+#include <list>
 #include "configuration.h"
 
 

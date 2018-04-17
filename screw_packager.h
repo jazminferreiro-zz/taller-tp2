@@ -2,7 +2,6 @@
 #define THREAD_H_
 
 #include<thread>
-
 #include "package_protector.h"
 #include "classifier_device.h"
 
@@ -41,8 +40,6 @@ class Screw_packager : public Thread {
 
     public:
         Screw_packager(char * classifier_name, Package_protector & protector);
-
         virtual void run();
 };
-
 #endif

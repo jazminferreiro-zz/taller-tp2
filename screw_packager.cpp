@@ -8,7 +8,8 @@ void Thread::join() {
     thread.join();
 }
 
-Screw_packager::Screw_packager(char * classifier_name, Package_protector & protector) :
+Screw_packager::Screw_packager(char * classifier_name,//
+    Package_protector & protector) :
     classifier_device(classifier_name), protector(protector) {
     this->classifier_device.connect();
 }

@@ -1,4 +1,4 @@
-
+#include <list>
 #include "package_protector.h"
 
 Package_protector::Package_protector(std::list<Package>* packages){
@@ -17,7 +17,6 @@ void Package_protector::prepare_package(Classification cl){
 }
 
 int Package_protector::try_to_add_screws(Package &pac, Classification & cl){
-  
     m.lock();
 
     if (( !pac.can_be_added(cl) ) || //

@@ -2,20 +2,16 @@
 #ifndef PACKAGE_H_
 #define PACKAGE_H
 
-#include <string.h>
+#include "classification.h"
+#include <string>
 #include <iostream>
+
 
 using std::string;
 using std::cout;
 
-
-
 #define ERROR 1
 #define SUCCESS 0
-
-
-#include "classification.h"
-
 
 class Package {
 private:
@@ -25,7 +21,7 @@ private:
     unsigned int current_screw_amount;
     unsigned int * width_list;
 
-    bool is_par(unsigned int n );
+    bool is_par(unsigned int n);
     static int comp_unsigned_int(const void *a, const void *b);
     unsigned int get_median_value();
     void init();
