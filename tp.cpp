@@ -34,13 +34,14 @@ using std::streampos;
 
 #include "classification.h"
 #include "classifier_device.h"
+#include "package.h"
 
 
 
 
 ///////////////////////////////////////////////////////////////////////////////
 
-class Package {
+/*class Package {
     int type_id;
     string name;
     unsigned int limit;
@@ -242,7 +243,7 @@ std::ostream& operator<< (std::ostream &out, const Package &pac)
 }
 
 
-
+*/
 
 ////////////////////////////////////////////////////////////////////////////////
 
