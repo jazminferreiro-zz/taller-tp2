@@ -11,7 +11,6 @@ using std::ifstream;
 using std::streampos;
 
 
-
 #include <fstream>
 #include <typeinfo>
 #include <string>
@@ -32,57 +31,9 @@ using std::streampos;
 #define EXPECTED_OPERANDS_NUM 3
 
 
-using std::cout;
 
-#define N 10
+#include "classification.h"
 
-
-class Classification{
-    int type;
-    unsigned int amount;
-    unsigned int width;
-
-    public:
-    Classification(unsigned int type, unsigned int amount, unsigned int width){
-        this-> type = type;
-        this-> amount = amount;
-        this-> width = width;
-    }
-
-    unsigned int get_amount(){
-        return this-> amount;
-    }
-
-    void take(unsigned int amount_taken){
-        //tirar excepcion si amount_taken es mayor que this->amount;
-        if (amount_taken > this->amount){
-            throw std::runtime_error( //
-                "Impossible to take more scrows than classification has\n");
-        }
-        this-> amount = this->amount -amount_taken;
-    }
-
-    bool all_were_taken(){
-        return (this-> amount <= 0);
-    }
-
-    //esta es para borrar
-    int get_type(){
-        return this->type;
-    }
-    unsigned int get_width(){
-        return this-> width;
-    }
-
-    friend std::ostream& operator<<(std::ostream &out,const Classification &cl);
-};
-
-std::ostream& operator<< (std::ostream &out, const Classification &cl)
-{
-    out << "\nClassification = type: " << cl.type << " amount:  " //
-    << cl.amount << " widt: " << cl.width << endl;
-    return out;
-}
 
 
 
@@ -128,6 +79,7 @@ class Package {
         memset(this->width_list, 0, limit*sizeof(unsigned int));
     }
 
+   
 
 
     public:
@@ -143,9 +95,14 @@ class Package {
         return limit;
     }
 
-    int get_type_id(){
+    int get_type_id() const{
         return this->type_id;
     }
+
+    bool operator <(const Package &other) const{
+        return this->type_id < other.get_type_id();
+    }
+
 
     unsigned int get_current_screw_amount(){
         return current_screw_amount;
@@ -617,12 +574,6 @@ class Screw_packager : public Thread {
         }
 };
 
-bool packages_id_comparator(Package &a, Package &b){
-    if (a.get_type_id() < b.get_type_id()){
-        return true;
-    }
-    return false;
-}
 
 int main(int argc, char * argv[] ){
     if (argc < EXPECTED_OPERANDS_NUM){
@@ -652,7 +603,7 @@ int main(int argc, char * argv[] ){
         delete threads[i];
     }
 
-    packages.sort(packages_id_comparator);
+    packages.sort();
 
     
     cout << "# Informe de remanentes"<< endl;
